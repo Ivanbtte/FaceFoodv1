@@ -9,5 +9,7 @@ package restaurante.entity;
  * @author labso02
  */
 public class Prueba {
-    
+    public void saludo(){
+        System.out.println("Hola");
+    }
 }

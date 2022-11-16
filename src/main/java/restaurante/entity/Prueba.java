@@ -12,4 +12,7 @@ public class Prueba {
     public void saludo(){
         System.out.println("Hola");
     }
+    public void saludo2(){
+        System.out.println("Hola");
+    }
 }

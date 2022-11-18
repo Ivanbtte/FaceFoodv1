@@ -57,4 +57,34 @@ public class IUsuarioModelImpl implements IUsuarioModel {
         usuario.setContraseña("ivan12");
         modelo.insertarRegistro(usuario);
     }*/
+
+    @Override
+    public void actualizarRegistro(Usuario usuario) {
+    try {
+            sf = new Configuration().configure().buildSessionFactory();
+            session = sf.openSession();
+            session.beginTransaction();
+            session.update(usuario);
+            session.getTransaction().commit();
+            session.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Usuario usuario) {
+    try {
+            sf = new Configuration().configure().buildSessionFactory();
+            session = sf.openSession();
+            session.beginTransaction();
+            session.delete(usuario);
+            session.getTransaction().commit();
+            session.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 }

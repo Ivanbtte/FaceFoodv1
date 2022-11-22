@@ -2,12 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
-<ui:composition template="./../index.xhtml">
+
+        <ui:composition template="./../template/index.xhtml">
 
             <ui:define name="content">
                 <h:form id="form">
@@ -49,11 +50,9 @@
     </div>
 
     <h:panelGrid id="idPanel" columns="2">
-        <h:outputLabel value="Ingrese el Nombre de usuario"></h:outputLabel>
-        <p:inputText id="id" value="#{usuario.usuario.nombre}"></p:inputText>
-        <h:outputLabel value="Ingrese la contraseña"></h:outputLabel>
-        <p:inputText id="id" value="#{usuario.usuario.contraseña}"></p:inputText>
-        <p:commandButton action="#{usuario.crearRegistro()}" value="Guardar registro" update=""></p:commandButton>
+        <h:outputLabel value="Ingrese el Rol"></h:outputLabel>
+        <p:inputText id="idRol" value="#{usuario.usuario.nombre}"></p:inputText>
+        <p:commandButton action="#(rol.crearRegistro())" value="Guardar registro" update=""></p:commandButton>
     </h:panelGrid>
 </h:form>
 

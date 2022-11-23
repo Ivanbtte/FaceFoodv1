@@ -3,6 +3,7 @@
   <persistence-unit name="restaurante.com_FaceFoodv1_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>restaurante.entity.Usuario</class>
+    <class>restaurante.entity.Platillos</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/facefood"/>

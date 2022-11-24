@@ -12,49 +12,56 @@
 
             <ui:define name="content">
                 <h:form id="form">
-    <p:growl id="msgs" showDetail="true"/>
+                    <p:growl id="msgs" showDetail="true"/>
 
-    <div class="card">
-        <h5>Row Editing</h5>
-        <p:dataTable id="idtable" var="registro" value="#{usuario.listaRegistros}" editable="true"
-                     style="margin-bottom:20px">
+                    <div class="card">
+                        <h5>Row Editing</h5>
+                        <p:dataTable id="idtable" var="registro" value="#{usuario.listaRegistros}" editable="true"
+                                     style="margin-bottom:20px">
 
-            <p:ajax event="rowEdit" listener="#{usuario.onRowEdit}" update=":form:msgs"/>
-<!--            <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs"/>-->
+                            <p:ajax event="rowEdit" listener="#{usuario.onRowEdit}" update=":form:msgs"/>
+                            <p:ajax event="rowEditCancel" listener="#{usuario.onRowCancel}" update=":form:msgs"/>
 
-            <p:column headerText="idRol">
-                <p:cellEditor>
-                    <f:facet name="output">
-                        <h:outputText value="#{registro.id}"/>
-                    </f:facet>
-                    <f:facet name="input">
-                        <p:inputText id="modelInput" value="#{registro.id}" style="width:100%"/>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
+                            <p:column headerText="idRol">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.id}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText id="modelInput" value="#{registro.id}" style="width:100%"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
 
-            <p:column headerText="nombre rol">
-                <p:cellEditor>
-                    <f:facet name="output">
-                        <h:outputText value="#{registro.nombre}"/>
-                    </f:facet>
-                    <f:facet name="input">
-                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
-                    </f:facet>
-                </p:cellEditor>
-            </p:column>
+                            <p:column headerText="nombre rol">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.nombre}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
 
-          
-            
-        </p:dataTable>
-    </div>
+                            <p:column style="width:6rem">
+                                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                            </p:column>
+                            <p:column style="width:6rem">
+                                <p:commandButton action="#{usuario.EliminarRegistro(registro)}" value="Eliminar registro" update=":form:idtable,:form:msgs"></p:commandButton>
 
-    <h:panelGrid id="idPanel" columns="2">
-        <h:outputLabel value="Ingrese el Rol"></h:outputLabel>
-        <p:inputText id="idRol" value="#{usuario.usuario.nombre}"></p:inputText>
-        <p:commandButton action="#(rol.crearRegistro())" value="Guardar registro" update=""></p:commandButton>
-    </h:panelGrid>
-</h:form>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+                    <h:panelGrid id="idPanel" columns="2">
+                        <h:outputLabel value="Ingrese el Nombre de usuario"></h:outputLabel>
+                        <p:inputText id="id" value="#{usuario.usuario.nombre}"></p:inputText>
+                        <h:outputLabel value="Ingrese la contraseña"></h:outputLabel>
+                        <p:inputText id="idc" value="#{usuario.usuario.contraseña}"></p:inputText>
+                        <p:commandButton action="#{usuario.CrearRegistro()}" value="Guardar registro" update=":form:idtable"></p:commandButton>
+                    </h:panelGrid>
+                </h:form>
 
             </ui:define>
 

@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ 
  */
 package restaurante.controller;
 
@@ -22,19 +21,22 @@ import restaurante.service.UsuarioServiceImpl;
  */
 @RequestScoped
 @ManagedBean(name = "usuario")
-public class UsuarioController implements Serializable{
+public class UsuarioController implements Serializable {
+
     private IUsuarioService service;
     private Usuario usuario;
     private List<Usuario> listaRegistros;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         service = new UsuarioServiceImpl();
         usuario = new Usuario();
         listaRegistros = service.obtenerRegistros();
     }
-    public void CrearRegistro(){
-       service.insertarRegistro(usuario);
+
+    public void CrearRegistro() {
+        service.insertarRegistro(usuario);
+        listaRegistros = service.obtenerRegistros();
         System.out.println("Creado");
     }
 
@@ -49,10 +51,20 @@ public class UsuarioController implements Serializable{
     public List<Usuario> getListaRegistros() {
         return listaRegistros;
     }
-    
-    public void onRowEdit(RowEditEvent event){
+
+    public void onRowEdit(RowEditEvent event) {
+        Usuario usuario = (Usuario) event.getObject();
+        service.actualizarRegistro(usuario);
+         listaRegistros = service.obtenerRegistros();
         FacesMessage mensaje = new FacesMessage("Registro editado exitosamente");
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
     }
-}
 
+    public void EliminarRegistro(Usuario usuario) {
+        service.eliminarRegistro(usuario);
+         listaRegistros = service.obtenerRegistros();
+        FacesMessage mensaje = new FacesMessage("Registro eliminado exitosamente");
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+
+    }
+}

@@ -32,6 +32,16 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
+                            <p:column headerText="precio del platillo">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.precio}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.precio}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
                             <p:column headerText="Descripcion del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
@@ -52,6 +62,16 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
+                            <p:column headerText="disponibilidad del platillo">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.disponiblidad}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.disponiblidad}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
 
                             <p:column style="width:6rem">
                                 <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
@@ -63,14 +83,22 @@
                         </p:dataTable>
                     </div>
 
-                    <h:panelGrid id="idPanel" columns="2">
-                        <h:outputLabel value="Ingrese el Nombre del platillo"></h:outputLabel>
+                    <h:panelGrid id="idPanel" columns="12">
+                        <h:outputLabel value="Nombre del platillo"></h:outputLabel>
                         <p:inputText id="id" value="#{platillo.platillo.nombre}"></p:inputText>
-                        <h:outputLabel value="Ingrese la descripcion del platillo"></h:outputLabel>
+                        <h:outputLabel value="Precio del platillo"></h:outputLabel>
+                        <p:inputNumber id="idp" value="#{platillo.platillo.precio}" modifyValueOnWheel="false" />
+                        <h:outputLabel value="Descripcion del platillo"></h:outputLabel>
                         <p:inputText id="idd" value="#{platillo.platillo.descripcion}"></p:inputText>
-                        <h:outputLabel value="Ingrese la categoria del platillo"></h:outputLabel>
+                        <h:outputLabel value="Categoria del platillo"></h:outputLabel>
                         <p:inputText id="idc" value="#{platillo.platillo.categoria}"></p:inputText>
-                        <p:commandButton action="#{platillo.CrearRegistro()}" value="Guardar registro" update=":form:idtable"></p:commandButton>
+                        <h:outputLabel value="Estado"></h:outputLabel>
+                        <h:selectOneMenu id="ide" value="#{platillo.platillo.disponiblidad}" required="true" label="Text 3">
+                            <f:selectItem itemLabel="Dispobibilidad" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Disponible" itemValue="true"/>
+                            <f:selectItem itemLabel="No Disponible" itemValue="false"/>
+                        </h:selectOneMenu>
+                        <p:commandButton action="#{platillo.CrearRegistro()}" value="Guardar" update=":form:idtable"></p:commandButton>
                     </h:panelGrid>
                 </h:form>
 

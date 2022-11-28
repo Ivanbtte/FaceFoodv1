@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../template/index.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:growl id="msgs" showDetail="true"/>
+
+                    <div class="card">
+                        <h5>Row Editing</h5>
+                        <p:dataTable id="idtable" var="registro" value="#{platillo.listaRegistros}" editable="true"
+                                     style="margin-bottom:20px">
+
+                            <p:ajax event="rowEdit" listener="#{platillo.onRowEdit}" update=":form:msgs"/>
+                            <p:ajax event="rowEditCancel" listener="#{platillo.onRowCancel}" update=":form:msgs"/>
+
+                            <p:column headerText="nombre del platillo">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.nombre}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Descripcion del platillo">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.descripcion}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.descripcion}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Categoria del platillo">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.categoria}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{registro.categoria}" style="width:100%" label="Name"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="width:6rem">
+                                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                            </p:column>
+                            <p:column style="width:6rem">
+                                <p:commandButton action="#{platillo.EliminarRegistro(registro)}" value="Eliminar registro" update=":form:idtable,:form:msgs"></p:commandButton>
+
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+                    <h:panelGrid id="idPanel" columns="2">
+                        <h:outputLabel value="Ingrese el Nombre del platillo"></h:outputLabel>
+                        <p:inputText id="id" value="#{platillo.platillo.nombre}"></p:inputText>
+                        <h:outputLabel value="Ingrese la descripcion del platillo"></h:outputLabel>
+                        <p:inputText id="idd" value="#{platillo.platillo.descripcion}"></p:inputText>
+                        <h:outputLabel value="Ingrese la categoria del platillo"></h:outputLabel>
+                        <p:inputText id="idc" value="#{platillo.platillo.categoria}"></p:inputText>
+                        <p:commandButton action="#{platillo.CrearRegistro()}" value="Guardar registro" update=":form:idtable"></p:commandButton>
+                    </h:panelGrid>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

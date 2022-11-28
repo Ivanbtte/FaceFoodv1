@@ -1,3 +1,8 @@
+/*
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 22/11/22
+* Descripción: Capa de servicios de platillos
+*/
 package restaurante.service;
 
 import java.util.List;

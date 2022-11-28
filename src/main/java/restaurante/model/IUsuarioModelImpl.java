@@ -1,3 +1,8 @@
+/*
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 19/11/22
+* Descripción: Clase de implementación de metodos de usuario
+*/
 package restaurante.model;
 
 import java.util.List;
@@ -23,7 +28,7 @@ public class IUsuarioModelImpl implements IUsuarioModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+            
         }
     }
 
@@ -37,7 +42,7 @@ public class IUsuarioModelImpl implements IUsuarioModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+            
         }
         return listaUsuario;
     }
@@ -53,7 +58,7 @@ public class IUsuarioModelImpl implements IUsuarioModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+            
         }
     }
 
@@ -68,7 +73,7 @@ public class IUsuarioModelImpl implements IUsuarioModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+            
         }
     }
 }

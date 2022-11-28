@@ -1,3 +1,8 @@
+/*
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 18/11/22
+* Descripción: Interfaz de servicios de usuario
+*/
 package restaurante.service;
 
 import java.util.List;

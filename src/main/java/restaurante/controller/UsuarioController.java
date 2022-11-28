@@ -1,6 +1,8 @@
 /*
- 
- */
+* Hecho por: Fernando Lopez Salvador, Estrella Lopez Lopez, Mario Hecxai Valencia Reyes
+* Fecha de creación: 19/11/22
+* Descripción: Controlador para usuario
+*/
 package restaurante.controller;
 
 import java.io.Serializable;
@@ -15,10 +17,6 @@ import restaurante.entity.Usuario;
 import restaurante.service.IUsuarioService;
 import restaurante.service.UsuarioServiceImpl;
 
-/**
- *
- * @author labso13
- */
 @RequestScoped
 @ManagedBean(name = "usuario")
 public class UsuarioController implements Serializable {
@@ -37,7 +35,6 @@ public class UsuarioController implements Serializable {
     public void CrearRegistro() {
         service.insertarRegistro(usuario);
         listaRegistros = service.obtenerRegistros();
-        System.out.println("Creado");
     }
 
     public Usuario getUsuario() {
@@ -55,16 +52,20 @@ public class UsuarioController implements Serializable {
     public void onRowEdit(RowEditEvent event) {
         Usuario usuario = (Usuario) event.getObject();
         service.actualizarRegistro(usuario);
-         listaRegistros = service.obtenerRegistros();
-        FacesMessage mensaje = new FacesMessage("Registro editado exitosamente");
-        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        listaRegistros = service.obtenerRegistros();
+        FacesMessage mensaje
+                = new FacesMessage("Registro editado exitosamente");
+        FacesContext.getCurrentInstance().
+                addMessage(null, mensaje);
     }
 
     public void EliminarRegistro(Usuario usuario) {
         service.eliminarRegistro(usuario);
-         listaRegistros = service.obtenerRegistros();
-        FacesMessage mensaje = new FacesMessage("Registro eliminado exitosamente");
-        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        listaRegistros = service.obtenerRegistros();
+        FacesMessage mensaje
+                = new FacesMessage("Registro eliminado exitosamente");
+        FacesContext.getCurrentInstance().
+                addMessage(null, mensaje);
 
     }
 }

@@ -1,7 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 22/11/22
+* Descripción: Entidad de platillos
+*/
 package restaurante.entity;
 
 import java.io.Serializable;
@@ -18,22 +19,36 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author labso02
- */
 @Entity
 @Table(name = "platillos")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Platillos.findAll", query = "SELECT p FROM Platillos p"),
-    @NamedQuery(name = "Platillos.findByCodigo", query = "SELECT p FROM Platillos p WHERE p.codigo = :codigo"),
-    @NamedQuery(name = "Platillos.findByNombre", query = "SELECT p FROM Platillos p WHERE p.nombre = :nombre"),
-    @NamedQuery(name = "Platillos.findByPrecio", query = "SELECT p FROM Platillos p WHERE p.precio = :precio"),
-    @NamedQuery(name = "Platillos.findByDescripcion", query = "SELECT p FROM Platillos p WHERE p.descripcion = :descripcion"),
-    @NamedQuery(name = "Platillos.findByCategoria", query = "SELECT p FROM Platillos p WHERE p.categoria = :categoria"),
-    @NamedQuery(name = "Platillos.findByCalificacion", query = "SELECT p FROM Platillos p WHERE p.calificacion = :calificacion"),
-    @NamedQuery(name = "Platillos.findByDisponiblidad", query = "SELECT p FROM Platillos p WHERE p.disponiblidad = :disponiblidad")})
+    @NamedQuery(name
+            = "Platillos.findAll", query = "SELECT p FROM Platillos p"),
+    @NamedQuery(name
+            = "Platillos.findByCodigo", query
+            = "SELECT p FROM Platillos p WHERE p.codigo = :codigo"),
+    @NamedQuery(name
+            = "Platillos.findByNombre", query
+            = "SELECT p FROM Platillos p WHERE p.nombre = :nombre"),
+    @NamedQuery(name
+            = "Platillos.findByPrecio", query
+            = "SELECT p FROM Platillos p WHERE p.precio = :precio"),
+    @NamedQuery(name
+            = "Platillos.findByDescripcion",
+            query = "SELECT p FROM Platillos "
+                    + "p WHERE p.descripcion = :descripcion"),
+    @NamedQuery(name
+            = "Platillos.findByCategoria", query
+            = "SELECT p FROM Platillos p WHERE p.categoria = :categoria"),
+    @NamedQuery(name
+            = "Platillos.findByCalificacion",
+            query = "SELECT p FROM Platillos p "
+                    + "WHERE p.calificacion = :calificacion"),
+    @NamedQuery(name
+            = "Platillos.findByDisponiblidad", query
+            = "SELECT p FROM Platillos p "
+                    + "WHERE p.disponiblidad = :disponiblidad")})
 public class Platillos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,7 +60,6 @@ public class Platillos implements Serializable {
     @Size(max = 50)
     @Column(name = "nombre")
     private String nombre;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precio")
     private Double precio;
     @Size(max = 250)
@@ -131,12 +145,13 @@ public class Platillos implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Platillos)) {
             return false;
         }
         Platillos other = (Platillos) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.codigo == null && other.codigo != null) || 
+                (this.codigo != null && 
+                !this.codigo.equals(other.codigo))) {
             return false;
         }
         return true;
@@ -146,5 +161,5 @@ public class Platillos implements Serializable {
     public String toString() {
         return "restaurante.entity.Platillos[ codigo=" + codigo + " ]";
     }
-    
+
 }

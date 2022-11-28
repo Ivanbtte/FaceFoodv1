@@ -1,4 +1,8 @@
-
+/*
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 22/11/22
+* Descripción: Interfaz de platillos
+*/
 package restaurante.model;
 
 import java.util.List;

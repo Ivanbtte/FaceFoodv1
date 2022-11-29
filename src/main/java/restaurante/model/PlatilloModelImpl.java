@@ -1,3 +1,8 @@
+/*
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 22/11/22
+* Descripción: Clase de implementación de metodos de platillos
+*/
 package restaurante.model;
 
 import java.util.List;
@@ -23,7 +28,7 @@ public class PlatilloModelImpl implements IPlatilloModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+
         }
     }
 
@@ -33,11 +38,12 @@ public class PlatilloModelImpl implements IPlatilloModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             session = sf.openSession();
-            listaPlatillos = session.createCriteria(Platillos.class).list();
+            listaPlatillos = session.createCriteria(Platillos.class).
+                    list();
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+
         }
         return listaPlatillos;
     }
@@ -53,7 +59,7 @@ public class PlatilloModelImpl implements IPlatilloModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+
         }
     }
 
@@ -68,7 +74,7 @@ public class PlatilloModelImpl implements IPlatilloModel {
             session.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error: " + e.getMessage());
+
         }
     }
 

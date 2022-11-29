@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Hecho por: Iván Guadalupe Bustamante Cortés
+* Fecha de creación: 18/11/22
+* Descripción: Capa de servicios de usuario
+*/
+
 package restaurante.service;
 
 import java.util.List;
@@ -9,10 +11,6 @@ import restaurante.entity.Usuario;
 import restaurante.model.IUsuarioModel;
 import restaurante.model.IUsuarioModelImpl;
 
-/**
- *
- * @author labso17
- */
 public class UsuarioServiceImpl implements IUsuarioService {
 
     private IUsuarioModel model = new IUsuarioModelImpl();

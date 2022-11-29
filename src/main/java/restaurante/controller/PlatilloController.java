@@ -1,7 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Hecho por: Fernando Lopez Salvador, Estrella Lopez Lopez, Mario Hecxai Valencia Reyes
+* Fecha de creación: 22/11/22
+* Descripción: Controlador para platillo
+*/
 package restaurante.controller;
 
 import java.io.Serializable;
@@ -16,27 +17,24 @@ import restaurante.entity.Platillos;
 import restaurante.service.IPlatilloService;
 import restaurante.service.PlatillosServiceImpl;
 
-/**
- *
- * @author labso09
- */
 @RequestScoped
 @ManagedBean(name = "platillo")
-public class PlatilloController implements Serializable{
+public class PlatilloController implements Serializable {
+
     private IPlatilloService service;
     private Platillos platillo;
     private List<Platillos> listaRegistros;
-    
-     @PostConstruct
+
+    @PostConstruct
     public void init() {
         service = new PlatillosServiceImpl();
         platillo = new Platillos();
         listaRegistros = service.obtenerRegistros();
     }
+
     public void CrearRegistro() {
         service.insertarRegistro(platillo);
         listaRegistros = service.obtenerRegistros();
-        System.out.println("Creado");
     }
 
     public Platillos getPlatillo() {
@@ -54,15 +52,19 @@ public class PlatilloController implements Serializable{
     public void onRowEdit(RowEditEvent event) {
         Platillos platillo = (Platillos) event.getObject();
         service.actualizarRegistro(platillo);
-         listaRegistros = service.obtenerRegistros();
-        FacesMessage mensaje = new FacesMessage("Registro editado exitosamente");
-        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        listaRegistros = service.obtenerRegistros();
+        FacesMessage mensaje = 
+                new FacesMessage("Registro editado exitosamente");
+        FacesContext.getCurrentInstance().
+                addMessage(null, mensaje);
     }
-    
+
     public void EliminarRegistro(Platillos platillo) {
         service.eliminarRegistro(platillo);
-         listaRegistros = service.obtenerRegistros();
-        FacesMessage mensaje = new FacesMessage("Registro eliminado exitosamente");
-        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        listaRegistros = service.obtenerRegistros();
+        FacesMessage mensaje =
+                new FacesMessage("Registro eliminado exitosamente");
+        FacesContext.getCurrentInstance().
+                addMessage(null, mensaje);
     }
 }

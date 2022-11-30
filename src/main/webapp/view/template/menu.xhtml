@@ -7,13 +7,42 @@
     <body>
 
         <ui:composition>
-            <h:outputLink value="#{request.contextPath}/faces/view/content/home2.xhtml" class="nav-lik">Home</h:outputLink>
-             <br></br>
-              <br></br>
-              
-            <h:outputLink value="#{request.contextPath}/faces/view/content/platillos.xhtml" class="nav-lik">Platillos</h:outputLink>
-            <br></br>
-        </ui:composition>
+            <div class="px-3 py-2 bg-dark text-white">
+                <div class="container">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use href="#bootstrap"/></svg>
+                        </a>
 
+                        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                            <li>
+                                <a href="#{request.contextPath}/faces/view/template/index.xhtml" class="nav-link text-secondary">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use href="#home"/></svg>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/faces/view/content/home2.xhtml" class="nav-link text-white">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use href="#speedometer2"/></svg>
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/faces/view/content/platillos.xhtml" class="nav-link text-white">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use href="#table"/></svg>
+                                    Platillos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/faces/view/content/acercade.xhtml" class="nav-link text-white">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use href="#table"/></svg>
+                                    Acerca de..
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ui:composition>
     </body>
 </html>

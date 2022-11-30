@@ -19,7 +19,7 @@
                     <p:growl id="msgs" showDetail="true"/>
 
                     <div class="card">
-                        <h5>Lista de usuarios</h5>
+                        <h5>Usuarios</h5>
                         <p:dataTable id="idtable" var="registro" 
                                      value="#{usuario.listaRegistros}" 
                                      editable="true"
@@ -32,7 +32,7 @@
                                     listener="#{usuario.onRowCancel}" 
                                     update=":form:msgs"/>
 
-                            <p:column headerText="id">
+                            <p:column headerText="ID usuario">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.id}"/>
@@ -45,7 +45,7 @@
                                 </p:cellEditor>
                             </p:column>
 
-                            <p:column headerText="nombre">
+                            <p:column headerText="Nombre de usuario">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText 
@@ -77,20 +77,20 @@
 
                     <h:panelGrid id="idPanel" columns="2">
                         <h:outputLabel 
-                            value="Ingrese el Nombre de usuario">
+                            value="Ingresar nombre de usuario">
                                 
                         </h:outputLabel>
                         <p:inputText id="id" 
                                      value="#{usuario.usuario.nombre}">
                         </p:inputText>
-                        <h:outputLabel value="Ingrese la contraseña">
+                        <h:outputLabel value="Ingresar contraseña de usuario">
                             
                         </h:outputLabel>
                         <p:password id="toggle" 
                                     value="#{usuario.usuario.contraseña}" 
                                     toggleMask="true" redisplay="true"/>
                         <p:commandButton action="#{usuario.CrearRegistro()}" 
-                                         value="Guardar registro" 
+                                         value="Guardar nuevo registro" 
                                          update=":form:idtable">
                         </p:commandButton>
                     </h:panelGrid>

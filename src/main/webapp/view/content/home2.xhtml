@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!-- Autor: Iris Estrella Lopez Lopez 
+<!-- Autor: Iris Estrella López López 
             Mario Hexai Valencia Reyes
-     Fecha de modificacion:28 de noviembre de 2022
+     Fecha de creación: 16 de noviembre de 2022
+     Fecha de modificación:28 de noviembre de 2022
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -20,10 +21,13 @@
 
                     <div class="card">
                         <h5>Usuarios</h5>
-                        <p:dataTable id="idtable" var="registro" 
-                                     value="#{usuario.listaRegistros}" 
-                                     editable="true"
-                                     style="margin-bottom:20px">
+                        
+                            <p:dataTable id="idtable" var="registro" value="#{usuario.listaRegistros}" editable="true" rows="5"
+                                     paginator="true" paginatorPosition="both"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                                     style="margin-bottom:0.5px">
 
                             <p:ajax event="rowEdit" 
                                     listener="#{usuario.onRowEdit}" 

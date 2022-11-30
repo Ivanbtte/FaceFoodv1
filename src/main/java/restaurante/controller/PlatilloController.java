@@ -20,7 +20,9 @@ import restaurante.service.PlatillosServiceImpl;
 @RequestScoped
 @ManagedBean(name = "platillo")
 
-/*clase platillo contoller*/
+/*
+*clase platillo contoller
+*/
 public class PlatilloController implements Serializable {
 
     private IPlatilloService service;
@@ -33,7 +35,9 @@ public class PlatilloController implements Serializable {
         platillo = new Platillos();
         listaRegistros = service.obtenerRegistros();
     }
-/*metodo para crear un registro de platillo */
+/*
+*metodo para crear un registro de platillo 
+*/
     public void CrearRegistro() {
         service.insertarRegistro(platillo);
         listaRegistros = service.obtenerRegistros();
@@ -46,11 +50,15 @@ public class PlatilloController implements Serializable {
     public void setPlatillo(Platillos platillo) {
         this.platillo = platillo;
     }
-/*metodo para listar los platillos que se encuentan en la tabla platillos*/
+    /*
+    *metodo para listar los platillos que se encuentan en la tabla platillos
+    */
     public List<Platillos> getListaRegistros() {
         return listaRegistros;
     }
-/*metodo para editar un platillo que se encuentra en la tabla mediante el evento rowedit*/
+    /*
+    metodo para editar un platillo que se encuentra en la tabla mediante el evento rowedit
+    */
     public void onRowEdit(RowEditEvent event) {
         Platillos platillo = (Platillos) event.getObject();
         service.actualizarRegistro(platillo);
@@ -60,7 +68,9 @@ public class PlatilloController implements Serializable {
         FacesContext.getCurrentInstance().
                 addMessage(null, mensaje);
     }
-/*metodo para elminar un registro en la tabla platillos obteniendo el registro platillo*/
+    /*
+    metodo para elminar un registro en la tabla platillos obteniendo el registro platillo
+    */
     public void EliminarRegistro(Platillos platillo) {
         service.eliminarRegistro(platillo);
         listaRegistros = service.obtenerRegistros();

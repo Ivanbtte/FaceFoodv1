@@ -17,6 +17,9 @@ public class PlatilloModelImpl implements IPlatilloModel {
     private SessionFactory sf;
     private Session session;
 
+    /*
+    * Metodo para insertar un platillo a la BD
+    */
     @Override
     public void insertarRegistro(Platillos platillos) {
         try {
@@ -32,6 +35,9 @@ public class PlatilloModelImpl implements IPlatilloModel {
         }
     }
 
+    /*
+    * Metodo para consultar platillos de la BD
+    */
     @Override
     public List<Platillos> obtenerRegistros() {
         List<Platillos> listaPlatillos = null;
@@ -48,6 +54,9 @@ public class PlatilloModelImpl implements IPlatilloModel {
         return listaPlatillos;
     }
 
+    /*
+    * Metodo para actualizar un platillo a la BD
+    */
     @Override
     public void actualizarRegistro(Platillos platillos) {
         try {
@@ -63,6 +72,9 @@ public class PlatilloModelImpl implements IPlatilloModel {
         }
     }
 
+    /*
+    * Metodo para eliminar un platillo a la BD
+    */
     @Override
     public void eliminarRegistro(Platillos platillos) {
         try {

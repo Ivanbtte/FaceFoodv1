@@ -1,4 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
+<!-- Autor: Iris Estrella Lopez Lopez 
+            Mario Hexai Valencia Reyes
+     Fecha de modificacion:28 de noviembre de 2022
+-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -15,51 +19,80 @@
                     <p:growl id="msgs" showDetail="true"/>
 
                     <div class="card">
-                        <h5>Row Editing</h5>
-                        <p:dataTable id="idtable" var="registro" value="#{usuario.listaRegistros}" editable="true"
+                        <h5>Lista de usuarios</h5>
+                        <p:dataTable id="idtable" var="registro" 
+                                     value="#{usuario.listaRegistros}" 
+                                     editable="true"
                                      style="margin-bottom:20px">
 
-                            <p:ajax event="rowEdit" listener="#{usuario.onRowEdit}" update=":form:msgs"/>
-                            <p:ajax event="rowEditCancel" listener="#{usuario.onRowCancel}" update=":form:msgs"/>
+                            <p:ajax event="rowEdit" 
+                                    listener="#{usuario.onRowEdit}" 
+                                    update=":form:msgs"/>
+                            <p:ajax event="rowEditCancel" 
+                                    listener="#{usuario.onRowCancel}" 
+                                    update=":form:msgs"/>
 
-                            <p:column headerText="idRol">
+                            <p:column headerText="id">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.id}"/>
                                     </f:facet>
                                     <f:facet name="input">
-                                        <p:inputText id="modelInput" value="#{registro.id}" style="width:100%"/>
+                                        <p:inputText id="modelInput" 
+                                                     value="#{registro.id}" 
+                                                     style="width:100%"/>
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
 
-                            <p:column headerText="nombre rol">
+                            <p:column headerText="nombre">
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{registro.nombre}"/>
+                                        <h:outputText 
+                                            value="#{registro.nombre}"/>
                                     </f:facet>
                                     <f:facet name="input">
-                                        <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
+                                        <p:inputText value="#{registro.nombre}" 
+                                                     style="width:100%" 
+                                                     label="Name"/>
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
 
                             <p:column style="width:6rem">
-                                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                                <p:rowEditor editTitle="Edit Row" 
+                                             cancelTitle="Cancel Edit" 
+                                             saveTitle="Save Row"/>
                             </p:column>
                             <p:column style="width:6rem">
-                                <p:commandButton action="#{usuario.EliminarRegistro(registro)}" value="Eliminar registro" update=":form:idtable,:form:msgs"></p:commandButton>
+                                <p:commandButton 
+                                    action="#{usuario.EliminarRegistro(registro)}" 
+                                    value="Eliminar registro" 
+                                    update=":form:idtable,:form:msgs">
+                                </p:commandButton>
 
                             </p:column>
                         </p:dataTable>
                     </div>
 
                     <h:panelGrid id="idPanel" columns="2">
-                        <h:outputLabel value="Ingrese el Nombre de usuario"></h:outputLabel>
-                        <p:inputText id="id" value="#{usuario.usuario.nombre}"></p:inputText>
-                        <h:outputLabel value="Ingrese la contraseña"></h:outputLabel>
-                        <p:inputText id="idc" value="#{usuario.usuario.contraseña}"></p:inputText>
-                        <p:commandButton action="#{usuario.CrearRegistro()}" value="Guardar registro" update=":form:idtable"></p:commandButton>
+                        <h:outputLabel 
+                            value="Ingrese el Nombre de usuario">
+                                
+                        </h:outputLabel>
+                        <p:inputText id="id" 
+                                     value="#{usuario.usuario.nombre}">
+                        </p:inputText>
+                        <h:outputLabel value="Ingrese la contraseña">
+                            
+                        </h:outputLabel>
+                        <p:password id="toggle" 
+                                    value="#{usuario.usuario.contraseña}" 
+                                    toggleMask="true" redisplay="true"/>
+                        <p:commandButton action="#{usuario.CrearRegistro()}" 
+                                         value="Guardar registro" 
+                                         update=":form:idtable">
+                        </p:commandButton>
                     </h:panelGrid>
                 </h:form>
 

@@ -1,4 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
+<!-- Autor: Fernando López Salvador 
+            Mario Hexai Valencia Reyes
+     Fecha de creación: 16 de noviembre de 2022
+     Fecha de modificación:29 de noviembre de 2022
+-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -26,7 +31,7 @@
                             <p:ajax event="rowEdit" listener="#{platillo.onRowEdit}" update=":form:msgs"/>
                             <p:ajax event="rowEditCancel" listener="#{platillo.onRowCancel}" update=":form:msgs"/>
 
-                            <p:column headerText="nombre del platillo">
+                            <p:column headerText="Nombre del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.nombre}"/>
@@ -36,7 +41,7 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            <p:column headerText="precio del platillo">
+                            <p:column headerText="Precio del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.precio}"/>
@@ -46,7 +51,7 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            <p:column headerText="Descripcion del platillo">
+                            <p:column headerText="Descripción del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.descripcion}"/>
@@ -56,7 +61,7 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            <p:column headerText="Categoria del platillo">
+                            <p:column headerText="Categoría del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.categoria}"/>
@@ -66,7 +71,7 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            <p:column headerText="disponibilidad del platillo">
+                            <p:column headerText="Disponibilidad del platillo">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.disponiblidad}"/>
@@ -94,10 +99,10 @@
                         </p:inputText>
                         <h:outputLabel value="Precio del platillo"></h:outputLabel>
                         <p:inputNumber id="idp" value="#{platillo.platillo.precio}" modifyValueOnWheel="false" required="true"/>
-                        <h:outputLabel value="Descripcion del platillo"></h:outputLabel>
+                        <h:outputLabel value="Descripción del platillo"></h:outputLabel>
                         <p:inputText id="idd" value="#{platillo.platillo.descripcion}" required="true">
                            </p:inputText>
-                        <h:outputLabel value="Categoria del platillo"></h:outputLabel>
+                        <h:outputLabel value="Categoría del platillo"></h:outputLabel>
                         <p:inputText id="idc" value="#{platillo.platillo.categoria}" required="true">
                           </p:inputText>
                         <h:outputLabel value="Estado"></h:outputLabel>

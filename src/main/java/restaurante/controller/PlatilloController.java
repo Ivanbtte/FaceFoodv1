@@ -1,5 +1,7 @@
 /*
-* Hecho por: Fernando Lopez Salvador, Estrella Lopez Lopez, Mario Hecxai Valencia Reyes
+* Hecho por: Fernando Lopez Salvador
+* Estrella Lopez Lopez
+* Mario Hecxai Valencia Reyes
 * Fecha de creación: 22/11/22
 * Descripción: Controlador para platillo
 */
